@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function TechStack() {
   return (
     <section className="bg-[#faf9f6] py-16 md:py-24 px-4 sm:px-6 lg:px-8">
@@ -18,14 +20,12 @@ export default function TechStack() {
             data-aos="fade-up"
             data-aos-delay="100"
             className="p-8 border-b border-gray-300 md:border-b-0 md:border-r">
-            <svg
-              className="w-10 h-10 mb-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24">
-              <path d="M9 3a5 5 0 0 1 6 0M6 8a6 6 0 0 1 12 0M5 14h14M7 19h10" />
-            </svg>
+            <Image
+              src="/image/brain.png"
+              alt="brain icon"
+              width={32}
+              height={32}
+            />
             <h3 className="text-xl font-semibold mb-2">AI Frameworks</h3>
             <p className="text-gray-700 text-sm leading-relaxed">
               TensorFlow, PyTorch, Keras for advanced AI development.
@@ -37,14 +37,13 @@ export default function TechStack() {
             data-aos="fade-up"
             data-aos-delay="200"
             className="p-8 border-b border-gray-300 md:border-b-0">
-            <svg
-              className="w-10 h-10 mb-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24">
-              <path d="M16 18l6-6-6-6M8 6l-6 6 6 6M10 20l4-16" />
-            </svg>
+            <Image
+              src="/image/programming.png"
+              alt="brain icon"
+              width={32}
+              height={32}
+            />
+
             <h3 className="text-xl font-semibold mb-2">Languages</h3>
             <p className="text-gray-700 text-sm leading-relaxed">
               Python, JavaScript, and Next.js for diverse applications.
@@ -56,14 +55,12 @@ export default function TechStack() {
             data-aos="fade-up"
             data-aos-delay="300"
             className="p-8 border-t border-gray-300 md:border-t md:border-r">
-            <svg
-              className="w-10 h-10 mb-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24">
-              <path d="M3 15a4 4 0 0 1 4-4h9a5 5 0 1 1 0 10H7a4 4 0 0 1-4-4z" />
-            </svg>
+            <Image
+              src="/image/cloud-computing.png"
+              alt="brain icon"
+              width={32}
+              height={32}
+            />
             <h3 className="text-xl font-semibold mb-2">AWS</h3>
             <p className="text-gray-700 text-sm leading-relaxed">
               Cloud services, scalable deployments, and infrastructure
@@ -76,15 +73,12 @@ export default function TechStack() {
             data-aos="fade-up"
             data-aos-delay="400"
             className="p-8 border-t border-gray-300">
-            <svg
-              className="w-10 h-10 mb-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24">
-              <path d="M4 4h16v16H4z" />
-              <path d="M4 9h16M9 4v16" />
-            </svg>
+            <Image
+              src="/image/machine-learning.png"
+              alt="brain icon"
+              width={32}
+              height={32}
+            />
             <h3 className="text-xl font-semibold mb-2">ML</h3>
             <p className="text-gray-700 text-sm leading-relaxed">
               Model development, data pipelines, and predictive analytics.
