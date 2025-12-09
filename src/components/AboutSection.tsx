@@ -3,7 +3,9 @@ import aboutImg from "../../public/image/aboutImg.png";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+    <section
+      id="about"
+      className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 py-12 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <h1
@@ -16,9 +18,10 @@ export default function AboutSection() {
           <div className="flex-1 space-y-4 md:space-y-6" data-aos="fade-right">
             <div className="space-y-4">
               <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                I am a software engineer based in Vancouver, driven by curiosity. My journey began
-                with a fascination for problem-solving. I thrive on transforming
-                complex ideas into functional, user-friendly experiences.{" "}
+                I am a software engineer based in Vancouver, driven by
+                curiosity. My journey began with a fascination for
+                problem-solving. I thrive on transforming complex ideas into
+                functional, user-friendly experiences.{" "}
               </p>
               <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                 My philosophy centers on clean code, continuous improvement, and
@@ -50,9 +53,7 @@ export default function AboutSection() {
             className="flex-1 w-full lg:w-auto mt-8 lg:mt-0"
             data-aos="fade-left"
             data-aos-delay="200">
-            {" "}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              {" "}
               <Image
                 src={aboutImg}
                 alt="Developer illustration"
