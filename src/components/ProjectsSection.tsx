@@ -10,7 +10,7 @@ const projects = [
     img: "/image/dashboardImg.png",
   },
   {
-    title: "Cross-Platform Mobile App",
+    title: "News Web App",
     description:
       "Designed and built a mobile application for a niche market. Achieved high user engagement and satisfaction.",
     href: "/projects/cross-platform-mobile-app",

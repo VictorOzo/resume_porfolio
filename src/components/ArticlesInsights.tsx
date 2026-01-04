@@ -4,6 +4,14 @@ import Image from "next/image";
 export default function ArticlesInsights() {
   const articles = [
     {
+      image: "/image/tame_idea.jpg",
+      title: "Taming Your Idea",
+      description:
+        "This is not the kind of article I usually write. I'm more comfortable talking about systems, code, architecture, things that behave predictably if you understand them well enough. ",
+      gradient: "from-orange-200 to-amber-100",
+      url: "https://medium.com/@ozokweluvic/taming-your-idea-8b2cff508702",
+    },
+    {
       image: "/image/throttle_debounce.webp",
       title: "Improving React Performance with Debounce and Throttle",
       description:
