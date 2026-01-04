@@ -13,7 +13,7 @@ export default function Navbar() {
     { label: "About", href: "#about" },
     { label: "Articles", href: "#articles" },
     { label: "Projects", href: "#projects" },
-    { label: "Digital Playground", href: "/playground" },
+    { label: "Digital Playground", href: "/DigitalPlayground" },
   ];
 
   return (
