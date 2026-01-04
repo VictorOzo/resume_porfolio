@@ -1,11 +1,14 @@
 "use client";
 
-import { useState, MouseEvent } from "react";
+import { useState, MouseEvent, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -17,16 +20,50 @@ export default function Navbar() {
     { label: "Digital Playground", href: "/DigitalPlayground" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+      scrollTimeout.current = setTimeout(() => {
+        setIsVisible(true);
+      }, 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+    };
+  }, [lastScrollY]);
+
   const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#") && pathname !== "/") {
       e.preventDefault();
+
       router.push(`/${href}`);
     }
+
     setIsOpen(false);
   };
 
   return (
-    <nav className="w-full border-b border-gray-200 bg-white dark:bg-black">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 w-full border-b border-gray-200 bg-white dark:bg-black transition-transform duration-500 ease-out ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
         {/* Logo */}
         <div className="text-2xl font-bold tracking-tight">
