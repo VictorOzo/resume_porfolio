@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const links = [
     { label: "Home", href: "/" },
@@ -15,6 +16,14 @@ export default function Navbar() {
     { label: "Projects", href: "#projects" },
     { label: "Digital Playground", href: "/DigitalPlayground" },
   ];
+
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#") && pathname !== "/") {
+      e.preventDefault();
+      router.push(`/${href}`);
+    }
+    setIsOpen(false);
+  };
 
   return (
     <nav className="w-full border-b border-gray-200 bg-white dark:bg-black">
@@ -33,6 +42,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative pb-1 transition-all duration-300
                     after:content-[''] after:absolute after:left-0 after:bottom-0
                     after:h-0.5 after:bg-black dark:after:bg-white
@@ -71,7 +81,11 @@ export default function Navbar() {
           <ul className="flex flex-col gap-6 text-sm font-medium text-center items-center">
             {links.map((link) => (
               <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
+                <Link
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}>
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
